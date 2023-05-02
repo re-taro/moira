@@ -1,0 +1,14 @@
+{
+  "fmt": {
+    "exclude": ["CHANGELOG.md"]
+  },
+  "lint": {
+    "rules": {
+      "include": ["explicit-module-boundary-types"]
+    }
+  },
+  "tasks": {
+    "fmt": "deno fmt",
+    "lint": "deno lint"
+  }
+}
