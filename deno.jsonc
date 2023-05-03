@@ -9,6 +9,8 @@
   },
   "tasks": {
     "fmt": "deno fmt",
-    "lint": "deno lint"
+    "lint": "deno lint",
+    "cache": "deno cache --lock=deno.lock --lock-write core/deps.ts utils/deps.ts",
+    "reload": "deno cache --reload --lock=deno.lock core/deps.ts utils/deps.ts"
   }
 }
