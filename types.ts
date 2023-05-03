@@ -9,9 +9,9 @@ export type Result = Ok | Err;
 export type RunResult =
   | { check: Ok; run?: undefined }
   | {
-    check: Err;
-    run: Result;
-  };
+      check: Err;
+      run: Result;
+    };
 
 export type Action = {
   run: () => Promise<void>;

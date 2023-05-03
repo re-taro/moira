@@ -1,5 +1,5 @@
 import { dirname, ensureDir } from "./deps.ts";
-import type { Action } from "../types/mod.ts";
+import type { Action } from "./types.ts";
 
 export const link = ({
   source,

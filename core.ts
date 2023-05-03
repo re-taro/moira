@@ -1,5 +1,5 @@
 import { green, red } from "./deps.ts";
-import type { Action, Result, RunResult, Task } from "../types/mod.ts";
+import type { Action, Result, RunResult, Task } from "./types.ts";
 
 const prettyResult = (result: Result, { color = true } = {}): string => {
   const [msg, paint] = result.ok
@@ -50,7 +50,7 @@ export const defineTask = (actions: ReadonlyArray<Action>): Task => {
 
 export const prettyRunResult = (
   result: RunResult,
-  opt: { color?: boolean } = {},
+  opt: { color?: boolean } = {}
 ): string => {
   const checkMsg = prettyResult(result.check, opt);
   const msg = result.check.ok
