@@ -10,7 +10,7 @@
   "tasks": {
     "fmt": "deno fmt",
     "lint": "deno lint",
-    "cache": "deno cache --lock=deno.lock --lock-write core/deps.ts utils/deps.ts",
-    "reload": "deno cache --reload --lock=deno.lock core/deps.ts utils/deps.ts"
+    "cache": "deno cache --lock=deno.lock --lock-write core/deps.ts actions/deps.ts",
+    "reload": "deno cache --reload --lock=deno.lock core/deps.ts actions/deps.ts"
   }
 }
