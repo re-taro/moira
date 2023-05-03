@@ -1,9 +1,11 @@
-export type Ok = { name: string; ok: true; message?: undefined };
-export type Err = {
+type Ok = { name: string; ok: true; message?: undefined };
+
+type Err = {
   name: string;
   ok: false;
   message: string;
 };
+
 export type Result = Ok | Err;
 
 export type RunResult =
