@@ -1,14 +1,6 @@
 import { green, red } from "./deps.ts";
 import type { Action, Result, RunResult, Task } from "./types.ts";
 
-const prettyResult = (result: Result, { color = true } = {}): string => {
-  const [msg, paint] = result.ok
-    ? [`OK ${result.name}`, green]
-    : [`Error ${result.name}: ${result.message}`, red];
-
-  return color ? paint(msg) : msg;
-};
-
 export const defineTask = (actions: ReadonlyArray<Action>): Task => {
   const executeCheck: Task["check"] = async () => {
     const results: Array<Result> = [];
@@ -46,6 +38,20 @@ export const defineTask = (actions: ReadonlyArray<Action>): Task => {
   };
 
   return { check: executeCheck, run: executeRun };
+};
+
+const prettyResult = (result: Result, { color = true } = {}): string => {
+  const [msg, paint] = result.ok
+    ? [`OK ${result.name}`, green]
+    : [`Error ${result.name}: ${result.message}`, red];
+
+  return color ? paint(msg) : msg;
+};
+
+export const printCheckResults = (results: ReadonlyArray<Result>): void => {
+  for (const result of results.map((result) => prettyResult(result))) {
+    console.log(result);
+  }
 };
 
 export const prettyRunResult = (
