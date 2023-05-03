@@ -25,6 +25,11 @@
     "https://deno.land/std@0.177.0/path/mod.ts": "4b83694ac500d7d31b0cdafc927080a53dc0c3027eb2895790fb155082b0d232",
     "https://deno.land/std@0.177.0/path/posix.ts": "8b7c67ac338714b30c816079303d0285dd24af6b284f7ad63da5b27372a2c94d",
     "https://deno.land/std@0.177.0/path/separator.ts": "0fb679739d0d1d7bf45b68dacfb4ec7563597a902edbaf3c59b50d5bcadd93b1",
-    "https://deno.land/std@0.177.0/path/win32.ts": "d186344e5583bcbf8b18af416d13d82b35a317116e6460a5a3953508c3de5bba"
+    "https://deno.land/std@0.177.0/path/win32.ts": "d186344e5583bcbf8b18af416d13d82b35a317116e6460a5a3953508c3de5bba",
+    "https://deno.land/x/iterator_helpers@v0.1.2/lib/async_iterator_from.ts": "ca5209e21a5600508011bc9cfaf41ec6459347d274d538690f0ab6272f6eff1a",
+    "https://deno.land/x/iterator_helpers@v0.1.2/lib/iterator_from.ts": "9374ec98daad0a26e9610bb3981edc4252f69cf636ca373cb376799672a18329",
+    "https://deno.land/x/iterator_helpers@v0.1.2/lib/wrap_async_iterator.ts": "4e1b186eeed0f9cd33a41e70b6d43e32a6c65d7fb572120d130dd931095f98cc",
+    "https://deno.land/x/iterator_helpers@v0.1.2/lib/wrap_iterator.ts": "8ecdb7c54462f9006c9507852d1d4a412d2e2f6330157bede4da5db808ab0500",
+    "https://deno.land/x/iterator_helpers@v0.1.2/mod.ts": "3d42a1464447311852ecfc61081b52a676ebeb2dc9d4999162c30e0870c0113e"
   }
 }
