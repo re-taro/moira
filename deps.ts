@@ -1,6 +1,6 @@
-export { ensureDir } from "https://deno.land/std@0.189.0/fs/mod.ts";
-export { dirname } from "https://deno.land/std@0.189.0/path/mod.ts";
-export { green, red } from "https://deno.land/std@0.189.0/fmt/colors.ts";
+export { ensureDir } from "https://deno.land/std@0.190.0/fs/mod.ts";
+export { dirname } from "https://deno.land/std@0.190.0/path/mod.ts";
+export { green, red } from "https://deno.land/std@0.190.0/fmt/colors.ts";
 export {
   iteratorFrom,
   wrapIterator,
