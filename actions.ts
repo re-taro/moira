@@ -1,4 +1,4 @@
-import { dirname, ensureDir, wrapIterator, iteratorFrom } from "./deps.ts";
+import { dirname, ensureDir, iteratorFrom, wrapIterator } from "./deps.ts";
 import type { Action } from "./types.ts";
 
 export const link = ({
@@ -26,13 +26,11 @@ export const link = ({
       return { name: destination, ok: false, message: e.message };
     }
 
-    return path === sourcePath
-      ? { name: destination, ok: true }
-      : {
-          name: destination,
-          ok: false,
-          message: "symlink does not point the destination",
-        };
+    return path === sourcePath ? { name: destination, ok: true } : {
+      name: destination,
+      ok: false,
+      message: "symlink does not point the destination",
+    };
   },
 });
 
