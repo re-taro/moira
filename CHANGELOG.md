@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/re-taro/moira/compare/0.1.0...0.2.0) (2023-06-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* The design of exec action has been changed. Specifically, task check can be performed by passing `checkCmd` to the last action of a task chained with `defineTask`.
+
+### Features
+
+* update exec action ([ca66de7](https://github.com/re-taro/moira/commit/ca66de73682661b56276c593a300c5ef1c8f8513))
+
 ## 0.1.0 (2023-05-03)
 
 
