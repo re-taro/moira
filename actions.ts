@@ -73,36 +73,44 @@ export const write = ({
 export const exec = ({
   cmd,
   args,
+  checkCmd,
 }: {
   cmd: string;
   args: Array<string>;
+  checkCmd?: {
+    cmd: string;
+    args: Array<string>;
+  };
 }): Action => ({
   run: async () => {
     const p = new Deno.Command(cmd, { args }).spawn();
     await p.status;
   },
-  dry: async () => {
-    let p: Deno.ChildProcess;
-    try {
-      p = new Deno.Command(cmd, {
-        args,
-        stdin: "piped",
-        stdout: "null",
-      }).spawn();
-    } catch (e) {
-      return { name: cmd, ok: false, message: e };
-    }
-    const status = await p.status;
-    if (status.success) {
-      return { name: cmd, ok: true };
-    }
-    const stderr = await p
-      .output()
-      .then((out) => new TextDecoder().decode(out.stderr));
-    const message = wrapIterator(iteratorFrom(stderr.split("\n")[0]))
-      .take(80)
-      .reduce((acc, c) => acc + c, "");
+  check: async () => {
+    if (checkCmd) {
+      let p: Deno.ChildProcess;
+      try {
+        p = new Deno.Command(checkCmd.cmd, {
+          args: checkCmd.args,
+          stdin: "piped",
+          stdout: "null",
+        }).spawn();
+      } catch (e) {
+        return { name: checkCmd.cmd, ok: false, message: e };
+      }
+      const status = await p.status;
+      if (status.success) {
+        return { name: checkCmd.cmd, ok: true };
+      }
+      const stderr = await p
+        .output()
+        .then((out) => new TextDecoder().decode(out.stderr));
+      const message = wrapIterator(iteratorFrom(stderr.split("\n")[0]))
+        .take(80)
+        .reduce((acc, c) => acc + c, "");
 
-    return { name: cmd, ok: false, message };
+      return { name: checkCmd.cmd, ok: false, message };
+    }
+    return { name: "Ignored check", ok: true };
   },
 });

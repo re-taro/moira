@@ -52,6 +52,10 @@ const setup = defineTask([
   exec({
     cmd: "rm",
     args: ["-rf", "paru"],
+    checkCmd: {
+      cmd: "paru"
+      args: ["-V"]
+    }
   }),
 ]);
 
