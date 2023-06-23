@@ -4,8 +4,8 @@ import type { Action, Result, RunResult, Task } from "./types.ts";
 export const defineTask = (actions: ReadonlyArray<Action>): Task => {
   const executeCheck: Task["check"] = async () => {
     const results: Array<Result> = [];
-    for (const { dry } of actions) {
-      results.push(await dry());
+    for (const { check } of actions) {
+      results.push(await check());
     }
 
     return results;
@@ -13,8 +13,8 @@ export const defineTask = (actions: ReadonlyArray<Action>): Task => {
 
   const executeRun: Task["run"] = async () => {
     const results: Array<RunResult> = [];
-    for (const { dry, run } of actions) {
-      const checkResult = await dry();
+    for (const { check, run } of actions) {
+      const checkResult = await check();
       if (checkResult.ok) {
         results.push({ check: checkResult });
         continue;

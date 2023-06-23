@@ -17,7 +17,7 @@ export type RunResult =
 
 export type Action = {
   run: () => Promise<void>;
-  dry: () => Promise<Result>;
+  check: () => Promise<Result>;
 };
 
 export type Task = {
